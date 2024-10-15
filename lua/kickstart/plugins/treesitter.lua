@@ -15,7 +15,13 @@ return {
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
       },
+      hidesig = {
+        enable = true,
+        opacity = 0.5, -- opacity for sig definitions
+        delay = 200, -- update delay on CursorMoved and InsertLeave
+      },
       indent = { enable = true, disable = { 'ruby' } },
+      endwise = { enable = true },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
