@@ -180,6 +180,7 @@ return {
         -- ts_ls = {},
         --
 
+        sorbet = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
