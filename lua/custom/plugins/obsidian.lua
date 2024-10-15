@@ -14,7 +14,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'hrsh7th/cmp-nvim-lsp',
-    'nvim-telscope/telescope.nvim',
+    'nvim-telescope/telescope.nvim',
   },
   opts = {
     workspaces = {
