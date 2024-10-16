@@ -31,5 +31,6 @@ return {
         },
       },
     },
+    ui = { enable = false }, -- checkhealth recommends this with obsidian.nvim
   },
 }
