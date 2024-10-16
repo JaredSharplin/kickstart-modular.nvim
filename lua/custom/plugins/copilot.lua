@@ -3,11 +3,10 @@ return {
   opts = {
     suggestion = {
       enabled = true,
-      auto_trigger = true,
+      auto_trigger = false,
       keymap = {
-        accept = '<C-j>',
-        next = '<C-S-n>',
-        prev = '<C-S-p>',
+        accept = '<C-k>',
+        next = '<C-j>',
       },
     },
     panel = {
