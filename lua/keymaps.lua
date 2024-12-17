@@ -65,4 +65,4 @@ vim.api.nvim_create_autocmd({ 'FocusLost', 'ModeChanged', 'TextChanged', 'BufEnt
 vim.keymap.set('n', '<leader>o', ':lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>', { desc = '[O]pen MiniFiles' })
 
 -- Insert debugger statement
-vim.keymap.set('n', '<leader>db', 'i debugger(pre: "ls ;; i ;;")<Esc>', { desc = 'Insert ruby debugger' })
+vim.keymap.set('n', '<leader>db', ':normal! odebugger(pre: "i ;;")<Esc>', { desc = 'Insert ruby debugger' })
