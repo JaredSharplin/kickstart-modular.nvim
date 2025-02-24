@@ -112,6 +112,9 @@ return {
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'nvim_lsp_signature_help' },
+          per_filetype = {
+            codecompanion = { 'codecompanion' },
+          },
         },
       }
     end,
