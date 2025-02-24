@@ -80,4 +80,7 @@ vim.opt.wrap = false
 -- Remove end of file ~
 vim.opt.fillchars:append ',eob: '
 
+-- Add line at 120 characters
+vim.opt.colorcolumn = '120'
+
 -- vim: ts=2 sts=2 sw=2 et
