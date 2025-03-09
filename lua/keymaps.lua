@@ -66,3 +66,38 @@ vim.keymap.set('n', '<leader>o', ':lua MiniFiles.open(vim.api.nvim_buf_get_name(
 
 -- Insert debugger statement
 vim.keymap.set('n', '<leader>db', ':normal! odebugger(pre: "i ;;")<Esc>', { desc = 'Insert ruby debugger' })
+
+-- Copy relative path to clipboard
+vim.keymap.set('n', '<leader>cp', ':let @+=expand("%")<CR>', { desc = 'Copy relative path to clipboard' })
+
+-- Copy the nearest Minitest test line number to the clipboard
+vim.keymap.set('n', '<leader>ct', function()
+  local file_path = vim.fn.fnamemodify(vim.fn.expand '%', ':.')
+  local line_num = vim.fn.line '.'
+
+  -- Find the nearest test line by searching backward
+  local current_line = line_num
+  local test_pattern = '^%s*test%s+[\'"]'
+  local test_line = line_num
+
+  while current_line > 0 do
+    local line_content = vim.fn.getline(current_line)
+    if line_content:match(test_pattern) then
+      test_line = current_line
+      break
+    end
+    current_line = current_line - 1
+  end
+
+  local command = 'bundle exec bin/rails test ' .. file_path .. ':' .. test_line
+  vim.fn.setreg('+', command)
+  print('Copied to clipboard: ' .. command)
+end, { desc = 'Copy nearest test line command to clipboard' })
+
+-- Copy the whole current test file command to the clipboard
+vim.keymap.set('n', '<leader>cf', function()
+  local file_path = vim.fn.fnamemodify(vim.fn.expand '%', ':.')
+  local command = 'bundle exec bin/rails test ' .. file_path
+  vim.fn.setreg('+', command)
+  print('Copied to clipboard: ' .. command)
+end, { desc = 'Copy test file command to clipboard' })
