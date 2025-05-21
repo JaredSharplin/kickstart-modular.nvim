@@ -1,5 +1,5 @@
 return {
   'tpope/vim-rails',
-  'omnisyle/nvim-hidesig',
+  -- 'omnisyle/nvim-hidesig',
   'rhysd/conflict-marker.vim',
 }
