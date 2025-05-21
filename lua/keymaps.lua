@@ -51,21 +51,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Write the buffer when leaving it
-vim.api.nvim_create_autocmd({ 'FocusLost', 'ModeChanged', 'TextChanged', 'BufEnter' }, {
-  -- vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
-  callback = function()
-    if vim.bo.modified and not vim.bo.readonly and vim.fn.expand '%' ~= '' and vim.bo.buftype == '' then
-      vim.api.nvim_command 'silent update'
-    end
-  end,
-})
+-- when focus is lost, mode is changed, text is changed, or buffer is entered
+-- vim.api.nvim_create_autocmd({ 'FocusLost', 'TextChanged', 'BufEnter' }, {
+--   callback = function()
+--     -- Update the buffer if it's modified, not readonly, and not a special buffer
+--     if vim.bo.modified and not vim.bo.readonly and vim.fn.expand '%' ~= '' and vim.bo.buftype == '' then
+--       vim.api.nvim_command 'silent! update'
+--     end
+--   end,
+-- })
 
 -- Open MiniFiles
 vim.keymap.set('n', '<leader>o', ':lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>', { desc = '[O]pen MiniFiles' })
 
 -- Insert debugger statement
-vim.keymap.set('n', '<leader>db', ':normal! odebugger(pre: "i ;;")<Esc>', { desc = 'Insert ruby debugger' })
+vim.keymap.set('n', '<leader>db', ':normal! odebugger<Esc>', { desc = 'Insert ruby debugger' })
 
 -- Copy relative path to clipboard
 vim.keymap.set('n', '<leader>cp', ':let @+=expand("%")<CR>', { desc = 'Copy relative path to clipboard' })
