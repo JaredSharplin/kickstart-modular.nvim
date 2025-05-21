@@ -222,7 +222,6 @@ return {
         --
 
         sorbet = {},
-        ruby_lsp = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
