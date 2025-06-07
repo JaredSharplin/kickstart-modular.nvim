@@ -101,3 +101,15 @@ vim.keymap.set('n', '<leader>cf', function()
   vim.fn.setreg('+', command)
   print('Copied to clipboard: ' .. command)
 end, { desc = 'Copy test file command to clipboard' })
+
+-- Enable wrap on markdown files
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.opt_local.wrap = true -- Enable line wrapping
+    vim.opt_local.linebreak = true -- Break lines at word boundaries
+    vim.opt_local.textwidth = 0 -- Disable automatic line wrapping at a specific width
+    vim.opt_local.colorcolumn = '' -- Disable the color column
+  end,
+  desc = 'Enable wrap on markdown files',
+})
