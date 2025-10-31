@@ -31,6 +31,12 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Terminal mode window navigation
+vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-w>h', { desc = 'Move focus to the left window from terminal' })
+vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l', { desc = 'Move focus to the right window from terminal' })
+vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w>j', { desc = 'Move focus to the lower window from terminal' })
+vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w>k', { desc = 'Move focus to the upper window from terminal' })
+
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
@@ -62,7 +68,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- })
 
 -- Open MiniFiles
-vim.keymap.set('n', '<leader>o', ':lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>', { desc = '[O]pen MiniFiles' })
+vim.keymap.set('n', '<leader>mf', ':lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>', { desc = 'Open [M]ini[F]iles' })
+vim.keymap.set('n', '<leader>mh', ':lua MiniFiles.open()<CR>', { desc = 'Open [M]iniFiles [H]ome' })
 
 -- Insert debugger statement
 vim.keymap.set('n', '<leader>db', ':normal! odebugger<Esc>', { desc = 'Insert ruby debugger' })

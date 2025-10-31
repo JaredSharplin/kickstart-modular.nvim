@@ -13,5 +13,10 @@ return {
       ':GitBlameOpenCommitURL<CR>',
       desc = 'Git Blame Open Commit URL',
     },
+    {
+      '<leader>gc',
+      ':GitBlameCopyCommitURL<CR>',
+      desc = 'Git Blame Copy Commit URL',
+    },
   },
 }
